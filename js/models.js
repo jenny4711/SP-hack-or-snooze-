@@ -24,10 +24,14 @@ class Story {
   /** Parses hostname out of URL and returns it. */
 // https://developer.mozilla.org/en-US/docs/Web/API/Location/hostname
   getHostName() {
-    const host = $('.story-link')
+   let hostName =new URL(this.url)
+
+    return hostName.hostname
+    
+
     
     // UNIMPLEMENTED: complete this function!
-    return host.hostname
+   
   }
 }
 
@@ -75,21 +79,37 @@ class StoryList {
    * Returns the new Story instance
    */
 
-  async addStory(user,{title,author,url}) {
+   async addStory(user,{title,author,url}) {
     let token =user.loginToken
     let res =await axios({
       url:`${BASE_URL}/stories`,
       method:"POST",
       data:{token,story:{title,author,url}}
-      
-
+     
+    
 
     });
-    const story =new Story(response,data,story);
+
+
+  
+    const story =new Story(res,story);
+    this.stories.unshift(story)
+     user.ownStories.unshift(story)
+  
     
-    return new Story(response,data,story)
+    return story
     // UNIMPLEMENTED: complete this function!
   }
+
+async removeList(user,storyId){
+  console.log(storyId)
+ await axios({
+    url:`${BASE_URL}/stories/${storyId}`,
+    method:"DELETE",
+    data:{token:user.loginToken},
+  });
+
+}
 }
 
 
@@ -207,4 +227,31 @@ class User {
       return null;
     }
   }
+
+async addFavorite(favStory){
+  this.favorites.push(favStory);
+  await this.addOrRemoveFavorite("add",favStory)
+  console.log(this.favorites)
+}
+
+async removeFavorite(favStory){
+  this.favorites =this.favorites.filter(s=>s.storyId !==favStory.storyId);
+  await this.addOrRemoveFavorite("remove",favStory);
+  console.log(this.favorites)
+}
+
+async addOrRemoveFavorite(newState, favStory) {
+  const method = newState === "add" ? "POST" : "DELETE";
+  const token = this.loginToken;
+  await axios({
+    url: `${BASE_URL}/users/${this.username}/favorites/${favStory.storyId}`,
+    method: method,
+    data: { token },
+  });
+}
+isFavorite(story) {
+  return this.favorites.some(s => (s.storyId === story.storyId));
+}
+
+
 }

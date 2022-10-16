@@ -37,7 +37,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-self: center;
-  background-color: #f6f6ef;
+  background-color: #f8ffd7;
 }
 
 .hidden {
@@ -87,7 +87,7 @@ form > button {
   border-radius: 4px;
   padding: 8px;
   font-size: 0.85rem;
-  background-color: lightslategray;
+  background-color: #9ccc65;
   color: white;
   cursor: pointer;
   transition: all 0.15s;
@@ -121,3 +121,9 @@ form > hr {
     margin: 8px auto;
   }
 }
+
+#remove, #like, #unlike{
+  font-size: 60%;
+  background-color:#9ccc65
+}
+

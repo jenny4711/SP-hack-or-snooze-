@@ -6,6 +6,8 @@ const $body = $("body");
 
 const $storiesLoadingMsg = $("#stories-loading-msg");
 const $allStoriesList = $("#all-stories-list");
+const $favoritesOl=$('#my-favorite-list')
+const $myStoryOl =$('#my-stories-list')
 
 const $loginForm = $("#login-form");
 const $signupForm = $("#signup-form");
@@ -17,8 +19,11 @@ const $navLogOut = $("#nav-logout");
 const $submit =$('#submit-story')
 const $favorite =$('#favorites')
 const $myStory =$('#my-story')
-const $myStoryOl =$('#my-stories-list')
+
 const $submitBtn=$('#submitBtn')
+const $removeBtn=$('#removeBtn')
+const $favBtn=$('#like')
+
 
 
 /** To make it easier for individual components to show just themselves, this
@@ -35,7 +40,8 @@ function hidePageComponents() {
     $favorite,
     $myStory,
     $submitForm,
-    $myStoryOl
+    $myStoryOl,
+    $favoritesOl
   ];
   components.forEach(c => c.hide());
 }

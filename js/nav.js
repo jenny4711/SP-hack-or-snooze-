@@ -10,6 +10,11 @@ function navAllStories(evt) {
   console.debug("navAllStories", evt);
   hidePageComponents();
   putStoriesOnPage();
+  $favorite.show()
+  $myStory.show()
+  $submit.show()
+  $navLogOut.show()
+
 }
 
 $body.on("click", "#nav-all", navAllStories);
@@ -43,8 +48,12 @@ function updateNavOnLogin() {
 // submit sec
 function navSubmitClick(evt){
   console.debug("navSubmitClick",evt);
-  
+  hidePageComponents();
   $submitForm.show();
+  $favorite.show()
+  $myStory.show()
+  $submit.show()
+  $navLogOut.show()
 }
 $submit.on("click",navSubmitClick);
 
@@ -54,6 +63,22 @@ function navMyStoryClick(evt){
   $allStoriesList.hide()
   $myStoryOl.show();
   $submitForm.hide();
+  submitToMyStory()
+
+
   
 }
 $myStory.on("click",navMyStoryClick)
+
+function navFavoriteStoryClick(evt){
+  console.debug('navFavoriteStoryClick,',evt)
+  hidePageComponents();
+  addFavoritList()
+  $favorite.show()
+  $myStory.show()
+  $submit.show()
+  $navLogOut.show()
+
+}
+
+$favorite.on('click',navFavoriteStoryClick)
