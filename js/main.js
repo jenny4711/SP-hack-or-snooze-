@@ -1,6 +1,7 @@
 "use strict";
 
 // So we don't have to keep re-finding things on page, find DOM elements once:
+// JY-call ols,forms,btns tag and make hide section and btns,forms. 
 
 const $body = $("body");
 
@@ -57,6 +58,9 @@ function hideForms(){
 }
 
 /** Overall function to kick off the app. */
+// JY-when starting the browser, on the first page, all of the section is hidden.
+// only show the story list from API and navbar.
+// when logging in check for it is user or not 
 
 async function start() {
   hideForms()

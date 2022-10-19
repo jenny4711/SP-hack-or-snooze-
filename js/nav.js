@@ -5,15 +5,16 @@
  */
 
 /** Show main list of all stories when click site name */
+// JY- navBar section click evt.
 
 function navAllStories(evt) {
   console.debug("navAllStories", evt);
   hidePageComponents();
   putStoriesOnPage();
-  $favorite.show()
-  $myStory.show()
-  $submit.show()
-  $navLogOut.show()
+  $favorite.show();
+  $myStory.show();
+  $submit.show();
+  $navLogOut.show();
 
 }
 
@@ -50,20 +51,20 @@ function navSubmitClick(evt){
   console.debug("navSubmitClick",evt);
   hidePageComponents();
   $submitForm.show();
-  $favorite.show()
-  $myStory.show()
-  $submit.show()
-  $navLogOut.show()
+  $favorite.show();
+  $myStory.show();
+  $submit.show();
+  $navLogOut.show();
 }
 $submit.on("click",navSubmitClick);
 
 
 function navMyStoryClick(evt){
   console.debug("navMySoryClick",evt);
-  $allStoriesList.hide()
+  $allStoriesList.hide();
   $myStoryOl.show();
   $submitForm.hide();
-  submitToMyStory()
+  submitToMyStory();
 
 
   
@@ -73,11 +74,11 @@ $myStory.on("click",navMyStoryClick)
 function navFavoriteStoryClick(evt){
   console.debug('navFavoriteStoryClick,',evt)
   hidePageComponents();
-  addFavoritList()
-  $favorite.show()
-  $myStory.show()
-  $submit.show()
-  $navLogOut.show()
+  addFavoritList();
+  $favorite.show();
+  $myStory.show();
+  $submit.show();
+  $navLogOut.show();
 
 }
 

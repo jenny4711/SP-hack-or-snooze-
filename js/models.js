@@ -5,12 +5,13 @@ const BASE_URL = "https://hack-or-snooze-v3.herokuapp.com";
 /******************************************************************************
  * Story: a single story in the system
  */
-
+// JY-using instance to make form what we try to get info of story Object
+// JY-getHostName()- get host name from url
 class Story {
 
   /** Make instance of Story from data object about story:
    *   - {title, author, url, username, storyId, createdAt}
-   */
+  **/
 
   constructor({ storyId, title, author, url, username, createdAt }) {
     this.storyId = storyId;
@@ -39,6 +40,11 @@ class Story {
 /******************************************************************************
  * List of Story instances: used by UI to show story lists in DOM.
  */
+// 
+
+// JY-get Stories from API / and set up the form for new story class
+// JY-add my own story.  send to API my own story and put it to 'ownStories' 
+// JY-remove the a story from API
 
 class StoryList {
   constructor(stories) {
@@ -90,9 +96,9 @@ class StoryList {
 
     });
 
-
+ 
   
-    const story =new Story(res,story);
+    const story =new Story(res.data.story);
     this.stories.unshift(story)
      user.ownStories.unshift(story)
   
@@ -116,6 +122,9 @@ async removeList(user,storyId){
 /******************************************************************************
  * User: a user in the system (only used to represent the current user)
  */
+// -JY -when 'favorites' ,'ownStories'(instances) are received from API, set to ' new Story class 'form
+// JY- log-in and signup to API
+// JY-add Favorites and remove Favorites (mark or unmark )send to API
 
 class User {
   /** Make user instance from obj of user data and a token:

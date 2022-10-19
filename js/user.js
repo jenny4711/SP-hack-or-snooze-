@@ -72,7 +72,7 @@ $navLogOut.on("click", logout);
 /** If there are user credentials in local storage, use those to log in
  * that user. This is meant to be called on page load, just once.
  */
-
+// JY-when logging in check for it is user or not 
 async function checkForRememberedUser() {
   console.debug("checkForRememberedUser");
   const token = localStorage.getItem("token");
