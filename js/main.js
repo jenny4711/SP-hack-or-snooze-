@@ -1,6 +1,7 @@
 "use strict";
 
 // So we don't have to keep re-finding things on page, find DOM elements once:
+
 // JY-call ols,forms,btns tag and make hide section and btns,forms. 
 
 const $body = $("body");
@@ -25,12 +26,13 @@ const $submitBtn=$('#submitBtn')
 const $removeBtn=$('#removeBtn')
 const $favBtn=$('#like')
 
-
-
 /** To make it easier for individual components to show just themselves, this
  * is a useful function that hides pretty much everything on the page. After
  * calling this, individual components can re-show just what they want.
  */
+
+// JY-every list and form, the buttons have to be hidden by function. 
+// and then we can show wherever every section needs to show.
 
 function hidePageComponents() {
   const components = [
@@ -58,6 +60,7 @@ function hideForms(){
 }
 
 /** Overall function to kick off the app. */
+
 // JY-when starting the browser, on the first page, all of the section is hidden.
 // only show the story list from API and navbar.
 // when logging in check for it is user or not 

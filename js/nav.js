@@ -5,7 +5,7 @@
  */
 
 /** Show main list of all stories when click site name */
-// JY- navBar section click evt.
+// JY- navBar section click evt. when every 'navbar' click, let it open what only the section needs.  
 
 function navAllStories(evt) {
   console.debug("navAllStories", evt);
